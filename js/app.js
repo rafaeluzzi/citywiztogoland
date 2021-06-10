@@ -274,8 +274,8 @@ App.config(['$translateProvider', function ($translateProvider) {
             APPABOUTUS: "<p>Citywiz es una aplicación de iPhone\® y Android\® gratuita y fácil de usar que te ayudará a descubrir y conectarte con todo lo que te rodea \(actualmente en Puerto Rico\).</p><p>Si estás buscando un lugar para comer, salir de paseo, obtener información de eventos cercanos o buscando una aventura en nuestra hermosa isla, nuestra aplicación te ayudará a mantenerte conectado con todo lo que tu ciudad tiene para ofrecer.</p><p>Nuevos city-wizards \(guías\) serán añadidos regularmente para que continúes descubriendo cosas nuevas y esenciales como comida, aventura, música, arte, cultura y mucho más.</p>",
             TEAMTITLE: "¡Qué maravilloso conocerte!",
             TEAM: "<p>Somos un pequeño pero apasionado equipo puertorriqueño enfocado en brindar nuevos y divertidos productos tecnológicos que te ayudarán a buscar y descubrir.</p>",
-            DOWNLOADTITLE: "¡Comienza a descubrir tu ciudad ya!",
-            DOWNLOAD: "Nuestra aplicación GRATIS ya está disponible para iPhone\® y Android\®. ¡Descargue ahora y comienza a descubrir!",
+            DOWNLOADTITLE: "¡Su restaurante, Su marca — Online!",
+            DOWNLOAD: "Ayudamos a los restaurantes y foodtrucks locales a crecer su marca y ganar más dinero a través de pedidos en línea desde su propio sitio web o aplicación y herramientas de mercado a su medida.",
             ARTICLESHERO: "Descubre lugares para visitar, sitios para comer o quedarse y conoce a otros turistas a través de nuestros artículos.",
             INSTAGRAMCOPY: "Sigue nuestro Instagram donde presentamos los mejores lugares y comida de Puerto Rico capturados por increíbles fotógrafos / turisteros locales que aman la isla y los cuales debe seguir. Toque las imágenes para obtener información y crédito."
         });
