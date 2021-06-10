@@ -1,0 +1,377 @@
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top affix" >
+<div class="branch-journeys-top"></div>
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header" style="padding-bottom: 30px;">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
+                </button>
+                <a style="padding:0 15px" class="navbar-brand page-scroll" ng-click="gotoElement('page-top')"><span><img class="logoc" style="height:50px;margin-top: 10px;" src="img/logoheader.svg" alt="citywiz-logo"></span></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right gradient-effect">
+                    <li>
+                        <a class="page-scroll" ng-click="gotoElement('download')">Download</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" ng-href="https://feed.citywiz.com">Guides & Articles</a>
+                    </li>
+
+                    <li>
+                        <a class="page-scroll" ng-click="gotoElement('about')">About Us</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" ng-click="gotoElement('contact')">Contact</a>
+                    </li>
+                    <li>
+                        <div class="switch">
+
+    <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox" ng-model="data.cb2" aria-label="Switch 2" ng-true-value="'es'" ng-false-value="'en'" ng-change="changeLanguage(data.cb2)">
+    <label for="language-toggle"></label>
+
+    <span class="on">ENG</span>
+    <span class="off">ESP</span>
+
+  </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <header>
+
+<!-- test -->
+              <div class="container-main container-home">
+
+<nav class="nav-mainmenu hidden-xs hidden-sm"><ul>
+
+<a ng-click="gotoElement('download')" style="color: #2b2b2b;">
+  <li class="btn-ourjourney">
+
+    <span style="font-size:22px;font-weight: 600;text-align:center;padding:20px 40px">
+        {{'APPBOARD' | translate}}
+    </span>
+    <span style="font-size:20px;text-align:center;padding:20px 40px">{{'APPHERO2' | translate}}</span>
+    <span class="btn btn-outline btn-xl page-scroll">{{'DOWNAPP' | translate}}</span>
+
+
+    <span class="appimg"><img style="width: 60%;" src="http://d20ls07kdyeuub.cloudfront.net/mockupiphonexwhite.png" alt="citywiz_app"/></span>
+  </li>
+</a>
+  <a ng-href="https://feed.citywiz.com" style="color: #2b2b2b;"><li class="btn-ournetwork" style="justify-content: flex-start;">
+    <span style="font-size:20px;text-align:center;padding:20px 40px"><span style="font-size:22px;font-weight: 600;text-align:center">
+        {{'LANGBOARD' | translate}}
+    </span><br /><br />{{'ARTICLESHERO' | translate}}</span>
+    <span class="btn btn-outline btn-xl page-scroll">{{'VIEWBLOG' | translate}}</span><br/>
+    <span class="appimg" style="margin-bottom:20px;display:block;text-align:center"><img style="width: 60%;" src="./img/post.png" alt="citywiz_guides"/></span>
+
+
+
+
+  </li></a>
+
+  <a ng-href="https://www.instagram.com/citywiz.puertorico/" style="color: #2b2b2b;target:_blank"><li class="btn-thebigideas">
+<!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/272e1656a6c35296939be42a28a1968c.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+ <div style="background:white;width:100%;padding:20px;align-self:flex-end;display:flex;justify-content:space-between">
+   <div class="image_outer_container">
+   				<div class="green_icon"></div>
+   				<div class="image_inner_container">
+   					<img src="./img/starlogo.jpg">
+   				</div>
+   			</div>
+   <div style="padding:0 20px;font-size: 12px;line-height: 14px;">
+     {{'INSTAGRAMCOPY' | translate}}
+   </div>
+ </div>
+
+  </li></a>
+</ul></nav>
+
+</div>
+<!-- test -->
+                <a class="scrolld page-scroll" ng-click="gotoElement('download')"><span></span></a>
+
+    </header>
+
+
+    <!-- mobile small only -->
+    <div class="visible-xs-block visible-sm-block text-center" style="margin-top:100px">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+                <span style="font-size:22px;font-weight: 600;text-align:center">
+                    {{'APPBOARD' | translate}}
+                </span><br/>
+                <span style="font-size:16px;text-align:center;padding:20px 40px;display:block">{{'APPHERO2' | translate}}</span>
+                <a ng-href="http://onelink.to/citywiz" class="btn btn-outline btn-xl"  target="_blank">{{'DOWNAPP' | translate}}</a>
+                  <span class="appimg"><img style="width: 60%;" src="http://d20ls07kdyeuub.cloudfront.net/mockupiphonexwhite.png" alt="citywiz_app"/></span>
+              </div>
+          </div>
+      </div>
+      <div class="container bg-primary">
+          <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+
+                <span style="font-size:16px;text-align:center;padding:20px 0px;display:block"><span style="font-size:20px;font-weight: 600;text-align:center">
+                    {{'LANGBOARD' | translate}}
+                </span><br />{{'ARTICLESHERO' | translate}}</span>
+                <a ng-href="https://feed.citywiz.com"><span class="appimg" style="margin-bottom:20px;display:block"><img style="width: 60%;" src="./img/post.png" alt="citywiz_guides"/></span></a>
+                <a style="margin-bottom: 25px;" ng-href="https://feed.citywiz.com" class="btn btn-outline btn-xl">{{'VIEWBLOG' | translate}}</a>
+              </div>
+          </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2" style="padding:0">
+              <div style="background:white;width:100%;padding:20px;justify-content:center">
+                <a ng-href="https://www.instagram.com/citywiz.puertorico/" target="_blank"><div style="margin:20px auto;margin-bottom:20px" class="image_outer_container">
+                       <div class="green_icon"></div>
+                       <div class="image_inner_container">
+                         <img src="./img/starlogo.jpg">
+                       </div>
+                 </div></a>
+                <a ng-href="https://feed.citywiz.com" style="color: #2b2b2b; target:_blank"><div style="padding:0 20px;font-size: 12px;
+    line-height: 14px;">
+                  {{'INSTAGRAMCOPY' | translate}}
+                </div></a>
+              </div>
+              <!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/272e1656a6c35296939be42a28a1968c.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+
+            </div>
+        </div>
+  </div>
+</div>
+    <!-- ends mobile small only -->
+
+
+
+    <section id="download" class="download bg-primary text-center">
+   <div class="header-video">
+<!-- <video autoplay="true" class="background-video funpeople" data-prevent-cleanup="keep" loop="true" preload="">
+<source src="img/video/funpeople.mp4" type="video/mp4">
+<source src="img/video/funpeople.webm" type="video/webm">
+</video> -->
+<div class="video-overlay"></div>
+</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h2 class="section-heading hidden-xs hidden-sm">{{'DOWNLOADTITLE' | translate}}</h2>
+                    <p>{{'DOWNLOAD' | translate}}</p>
+                    <div class="badges" ng-model="data.cb2">
+                        <a href="https://itunes.apple.com/us/app/citywiz-puerto-rico-discovery-guides/id1263551302?ls=1&mt=8" class="badge-link"><img src="img/app-store-badge.svg" alt=""></a>
+                       <a ng-class="{hide: lang() == 'en'}" class="badge-link" href="https://play.google.com/store/apps/details?id=com.citywiz.app" data-mode="2" target="_blank"><img class="download-app" src="img/google-play-badge.svg" alt=""></a>
+                         <a ng-class="{showmeinline: lang() == 'en'}" class="badge-link hide" href="https://play.google.com/store/apps/details?id=com.citywiz.app" data-mode="2" target="_blank"><img class="download-app" src="img/google-play-badge.svg" alt=""></a>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="features">
+        <div class="container">
+            <!-- <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-heading">
+                        <h2>Unlimited Features, Unlimited Fun</h2>
+                        <p class="text-muted">Check out what you can do with this app theme!</p>
+                        <hr>
+                    </div>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-item">
+                                     <hr>
+                                    <h3>About Us</h3>
+                                    <hr>
+                                </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div>
+                                <div style="text-align:left">
+                                 <h3>{{'ABOUTUSTITLE' | translate}}</h3>
+                                    <span class="text-muted" translate="APPABOUTUS" translate-compile></span>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-item">
+                                     <hr>
+                                    <h3>Team</h3>
+                                    <hr>
+                                </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div>
+                                <div style="text-align:left">
+                                    <h3>{{'TEAMTITLE' | translate}}</h3>
+                                    <span class="text-muted" translate="TEAM" translate-compile></span>
+                                </div>
+                            </div>
+
+                        </div>
+                         <div class="row pt-md">
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+              <div class="img-box">
+                <img src="img/team/rafael.jpg" class="img-responsive">
+                <ul class="text-center">
+                  <a ng-href="https://twitter.com/rafaeluzzi/" target="_blank"><li><i class="fa fa-twitter"></i></li></a>
+                  <a ng-href="https://www.linkedin.com/in/rafaeluzzi/" target="_blank"> <li><i class="fa fa-linkedin"></i></li></a>
+                </ul>
+              </div>
+              <h1>Rafael Cruz</h1>
+              <h2><strong>Application Developer</strong></h2>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+              <div class="img-box">
+                <img src="img/team/guillermo.jpg" class="img-responsive">
+                <ul class="text-center">
+                  <a ng-href="https://twitter.com/gonz423/" target="_blank"><li><i class="fa fa-twitter"></i></li></a>
+                  <a ng-href="https://www.facebook.com/guillermo.arias.94/" target="_blank"><li><i class="fa fa-facebook"></i></li></a>
+                  <a ng-href="https://www.linkedin.com/in/guillermo-arias-053aa882/" target="_blank"> <li><i class="fa fa-linkedin"></i></li></a>
+                </ul>
+              </div>
+              <h1>Guillermo Arias</h1>
+              <h2><strong>Full-Stack Designer</strong></h2>
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+              <div class="img-box">
+                <img src="img/team/mario.jpg" class="img-responsive">
+                <ul class="text-center">
+                  <a ng-href="https://www.facebook.com/mario.j.muniz.9/" target="_blank"><li><i class="fa fa-facebook"></i></li></a>
+                  <a ng-href="https://www.linkedin.com/in/mario-muñiz-ramos-cpa-354546b7/"><li><i class="fa fa-linkedin"></i></li></a>
+                </ul>
+              </div>
+              <h1>Mario Muñiz</h1>
+              <h2><strong>CFO</strong><br />Certified Public Accountant (CPA)</h2>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+              <div class="img-box">
+                <img src="img/team/jeremy.jpg" class="img-responsive">
+                <ul class="text-center">
+                  <a ng-href="https://twitter.com/JeremyTorres235/" target="_blank"><li><i class="fa fa-twitter"></i></li></a>
+                  <a ng-href="https://facebook.com/JeremyTorres235/" target="_blank"><li><i class="fa fa-facebook"></i></li></a>
+                  <a ng-href="https://www.linkedin.com/in/jeremy-a-torres-torres-891b15189/"><li><i class="fa fa-linkedin"></i></li></a>
+                </ul>
+              </div>
+              <h1>Jeremy Torres</h1>
+              <h2><strong>Public Relations</strong><br />Social Media</h2>
+            </div>
+        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--<section class="cta">
+        <div class="cta-content">
+            <div class="container">
+                <h2>Stop waiting.<br>Start building.</h2>
+                <a href="#contact" class="btn btn-outline btn-xl page-scroll">Let's Get Started!</a>
+            </div>
+        </div>
+        <div class="overlay"></div>
+    </section>-->
+
+    <section id="contact" class="contact bg-primary">
+    <div class="header-video">
+<!-- <video autoplay="" class="background-video madewithlove" data-prevent-cleanup="keep" loop="" preload="">
+<source src="img/video/madewithlove.mp4" type="video/mp4">
+<source src="img/video/madewithlove.webm" type="video/webm">
+</video> -->
+<div class="video-overlay"></div>
+</div>
+        <div class="container">
+            <h4>made with <i class="fa fa-heart"></i> and lots of <i class="fa fa-coffee blk"></i> in puerto rico</h4>
+            <ul class="list-inline list-social">
+                <li class="social-twitter">
+                    <a ng-href="https://twitter.com/citywiz_pr_app" target="_blank"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li class="social-facebook">
+                    <a ng-href="https://www.facebook.com/citywizapp/" target="_blank"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li class="social-google-plus">
+                    <a ng-href="https://www.instagram.com/citywiz.puertorico/" target="_blank"><i class="fa fa-instagram"></i></a>
+                </li>
+            </ul>
+            <h4><i class="fa fa-envelope blk"></i> info@citywiz.com</h4>
+        </div>
+    </section>
+<footer>
+        <div class="container">
+            <p>&copy; 2019 CityWiz LLC. All Rights Reserved.</p>
+            <ul class="list-inline">
+                <li>
+                    <a href="http://citywiz.com/#!/privacy">Privacy</a>
+                </li>
+                <li>
+                    <a href="http://citywiz.com/#!/terms">Terms</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+<script type="text/javascript-lazy">
+
+    // Offset for Main Navigation
+   /*$('#mainNav').affix({
+        offset: {
+            top: 0
+        }
+    })*/
+</script>
+<script type="text/javascript-lazy">
+
+var isIOS = /iPad|iPhone|iPod/.test(navigator.platform);
+/*
+if (isIOS) {
+
+    var canvasVideo = new CanvasVideoPlayer({
+        videoSelector: '.video',
+        canvasSelector: '.canvas',
+        timelineSelector: false,
+        autoplay: true,
+        makeLoop: true,
+        pauseOnClick: false,
+        audio: false
+    });
+    document.querySelectorAll('.video').playbackRate = 0.1;
+
+}else {
+
+    // Use HTML5 video
+    document.querySelectorAll('.canvas')[0].style.display = 'none';
+
+
+
+}*/
+
+$('.navbar-collapse ul li a').click(function() {
+        $('.navbar-toggle:visible').click();
+    });
+$(document).on('click',function(){
+    $('.collapse').collapse('hide');
+});
+</script>

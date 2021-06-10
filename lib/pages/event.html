@@ -1,0 +1,777 @@
+<main id="pageController" ng-controller="pageCtrl" style="height:100%">
+
+<style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        html, body, #map {
+            height: 100%;
+        }
+        .lorem {
+            font-style: italic;
+            color: #AAA;
+        }
+
+    </style>
+     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" >
+<div class="branch-journeys-top"></div>
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
+                </button>
+                <a style="padding:0 15px" class="navbar-brand page-scroll" ng-click="gotoElement('page-top')"><span><img class="logoc" style="height:50px" src="img/logoheader.svg" alt="citywiz-logo"></span></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" ng-click="gotoElement('download')">Download</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" ng-click="gotoElement('about')">About Us</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" ng-click="gotoElement('contact')">Contact</a>
+                    </li>
+                    <li>
+                        <div class="switch">
+
+    <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox" ng-model="data.cb2" aria-label="Switch 2" ng-true-value="'es'" ng-false-value="'en'" ng-change="changeLanguage(data.cb2)">
+    <label for="language-toggle"></label>
+
+    <span class="on">ENG</span>
+    <span class="off">ESP</span>
+
+  </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div id="sidebar">
+        <div class="row" style="text-align: center;"> <!-- {{eat.social_imgs[0].img_path}} -->
+<div style="position:relative;">
+                <div class="menu-image"  style="height:100%;width:100%;height:300px;margin-bottom:0">
+                <img ng-if="card.venue_info.social_imgs[0].venue_source != 'stock'" width="100%" height="300" ng-src="{{card.venue_info.social_imgs[0].img_path}}?exp=-5&fit=crop&h=300&usm=20&chromasub=444&w=337&shad=20&dpr=2">
+                <img ng-if="card.venue_info.social_imgs[0].venue_source == 'stock'" width="100%" height="300" ng-src="{{card.venue_info.social_imgs[0].img_path}}?exp=-5&fit=crop&h=300&usm=20&chromasub=444&w=337&shad=20&dpr=2&txt64=bm90IGFjdHVhbCBpbWFnZQ&txtclr=ddd&txtsize=10">
+
+                </div>
+            </div>
+        <h1 ng-bind-html="card.title | removeAt"></h1>
+
+         <!--<span ng-repeat="social_img in card.venue_info.social_imgs">
+           <li ng-if="$index < 5" style="height: 60px;width: 60px;display:inline-block;margin:0;position:relative;background:#f5f5f5" class="imgloadbg"><img onload="this.style.opacity='1';" style="height: 60px;width: 60px;opacity:0;-webkit-transition: opacity 0.3s ease-in-out;" ng-src="{{social_img.img_path}}?w=120&h=120&fit=crop" >
+           </li>
+
+  </span> -->
+</div>
+
+
+
+
+
+
+
+
+    </div>
+
+    <div id="map"></div>
+    <div class="app-banner">
+        <div class="app-banner-info">
+            <a href=""><img src="img/logo.png" class="logo"></a>
+            <h2 class="slogan">{{'LANGBOARD' | translate}}</h2>
+            <p class="desc">{{'APPHERO2' | translate}}</p>
+            <a href="https://itunes.apple.com/us/app/citywiz-puerto-rico-discovery-guides/id1263551302?ls=1&mt=8"><img src="img/Apple-Store-Button.png" class="download-app"></a>
+              <a ng-class="{hide: lang() == 'en'}" class="typeform-share link badge-link" href="https://rafaeluzzzi.typeform.com/to/BLySvm" data-mode="2" target="_blank"><img class="download-app" src="img/google-play-badge.svg" alt=""></a>
+                         <a ng-class="{showmeinline: lang() == 'en'}" class="typeform-share link badge-link hide" href="https://rafaeluzzzi.typeform.com/to/e4dLzv" data-mode="2" target="_blank"><img class="download-app" src="img/google-play-badge.svg" alt=""></a>
+        </div>
+      </div>
+</main>
+<script type="text/javascript-lazy">
+setTimeout(function() {
+    window.thisScope = angular.element(document.getElementById('pageController')).scope();
+    if(thisScope.card.venue_info.venue_lat){
+        var lat = thisScope.card.venue_info.venue_lat;
+        var lon = thisScope.card.venue_info.venue_long;
+    }else{
+        var pueblolat = hasTag(thisScope.card.venue_info.venue_city).lat;
+        if(pueblolat){
+            var lat = pueblolat;
+            var lon = hasTag(thisScope.card.venue_info.venue_city).lon;
+        }else{
+            var lat = "18.466333";
+            var lon = "-66.105721";
+            }
+    }
+        var map = L.map('map');
+        map.setView([lat, lon], 12);
+        L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoicmFmYWVsdXp6aSIsImEiOiJFUF8tczRBIn0.MoH4ToSyQCxdg4NU68Fm_g', {
+            maxZoom: 18,
+            attribution: '&copy; Mapbox &copy; OpenStreetMap'
+        }).addTo(map);
+        var sidebar = L.control.sidebar('sidebar', {
+            closeButton: true,
+            position: 'left'
+        });
+        map.addControl(sidebar);
+        setTimeout(function () {
+            //sidebar.show();
+        }, 500);
+        var eatIcon = L.icon({
+    iconUrl: 'lib/map/images/venue-marker-icon.png',
+
+    iconSize:     [51, 51], // size of the icon
+    //shadowSize:   [61, 61], // size of the shadow
+    //iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    //shadowAnchor: [4, 62],  // the same for the shadow
+    //popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+        var marker = L.marker([lat, lon], {icon: eatIcon}).addTo(map).on('click', function () {
+            sidebar.toggle();
+        });
+        map.on('click', function () {
+            sidebar.hide();
+        })
+        sidebar.on('show', function () {
+            console.log('Sidebar will be visible.');
+            map.panTo([thisScope.card.latitude, thisScope.card.longitude]);
+        });
+        sidebar.on('shown', function () {
+            console.log('Sidebar is visible.');
+        });
+        sidebar.on('hide', function () {
+            console.log('Sidebar will be hidden.');
+            map.panTo([thisScope.card.latitude, thisScope.card.longitude]);
+        });
+        sidebar.on('hidden', function () {
+            console.log('Sidebar is hidden.');
+        });
+        L.DomEvent.on(sidebar.getCloseButton(), 'click', function () {
+            console.log('Close button clicked.');
+        });
+}, 500);
+var tags =[
+  {
+    "nombre": "Arroyo",
+    "area": "Sur",
+    "areaen": "south",
+    "lat": "17.997380",
+    "lon": "-66.058313"
+  },
+  {
+    "nombre": "Coamo",
+    "area": "Sur",
+    "areaen": "south",
+    "lat": "18.0806324",
+    "lon": "-66.3563048"
+  },
+  {
+    "nombre": "Guayama",
+    "area": "Sur",
+    "areaen": "south",
+    "lat": "17.9852036",
+    "lon": "-66.113567"
+  },
+  {
+    "nombre": "Guayanilla",
+    "area": "Sur",
+    "areaen": "south",
+    "lat": "18.040475",
+    "lon": "-66.792689"
+  },
+  {
+    "nombre": "Juana D\u00edaz",
+    "area": "Sur",
+    "areaen": "south",
+    "lat": "18.049025",
+    "lon": "-66.496755"
+  },
+  {
+    "nombre": "Patillas",
+    "area": "Sur",
+    "areaen": "south",
+    "lat": "18.019095",
+    "lon": "-66.002268"
+  },
+  {
+    "nombre": "Pe\u00f1uelas",
+    "area": "Sur",
+    "areaen": "south",
+    "lat": "18.062883",
+    "lon": "-66.721697"
+  },
+  {
+    "nombre": "Ponce",
+    "area": "Sur",
+    "areaen": "south",
+    "lat": "18.014372",
+    "lon": "-66.614582"
+  },
+  {
+    "nombre": "Salinas",
+    "area": "Sur",
+    "areaen": "south",
+    "lat": "18.004259",
+    "lon": "-66.260087"
+  },
+  {
+    "nombre": "Santa Isabel",
+    "area": "Sur",
+    "areaen": "south",
+    "lat": "17.989520",
+    "lon": "-66.389051"
+  },
+  {
+    "nombre": "Yauco",
+    "area": "Sur",
+    "areaen": "south",
+    "lat": "18.083595",
+    "lon": "-66.859039"
+  },
+  {
+    "nombre": "Aguada",
+    "area": "Oeste",
+    "areaen": "west",
+    "lat": "18.357795",
+    "lon": "-67.175086"
+  },
+  {
+    "nombre": "Aguadilla",
+    "area": "Oeste",
+    "areaen": "west",
+    "lat": "18.462562",
+    "lon": "-67.119777"
+  },
+  {
+    "nombre": "A\u00f1asco",
+    "area": "Oeste",
+    "areaen": "west",
+    "lat": "18.283430",
+    "lon": "-67.126750"
+  },
+  {
+    "nombre": "Cabo Rojo",
+    "area": "Oeste",
+    "areaen": "west",
+    "lat": "18.036371",
+    "lon": "-67.161132"
+  },
+  {
+    "nombre": "Gu\u00e1nica",
+    "area": "Oeste",
+    "areaen": "west",
+    "lat": "17.986219",
+    "lon": "-66.917460"
+  },
+  {
+    "nombre": "Hormigueros",
+    "area": "Oeste",
+    "areaen": "west",
+    "lat": "18.133319",
+    "lon": "-67.113047"
+  },
+  {
+    "nombre": "Isabela",
+    "area": "Oeste",
+    "areaen": "west",
+    "lat": "18.446243",
+    "lon": "-67.002014"
+  },
+  {
+    "nombre": "Lajas",
+    "area": "Oeste",
+    "areaen": "west",
+    "lat": "18.004972",
+    "lon": "-67.037274"
+  },
+  {
+    "nombre": "Las Mar\u00edas",
+    "area": "Oeste",
+    "areaen": "west",
+    "lat": "18.239036",
+    "lon": "-66.975373"
+  },
+  {
+    "nombre": "Maricao",
+    "area": "Oeste",
+    "areaen": "west",
+    "lat": "18.154638",
+    "lon": "-66.947551"
+  },
+  {
+    "nombre": "Mayag\u00fcez",
+    "area": "Oeste",
+    "areaen": "west",
+    "lat": "18.206678",
+    "lon": "-67.112803"
+  },
+  {
+    "nombre": "Moca",
+    "area": "Oeste",
+    "areaen": "west",
+    "lat": "18.385672",
+    "lon": "-67.085954"
+  },
+  {
+    "nombre": "Quebradillas",
+    "area": "Oeste",
+    "areaen": "west",
+    "lat": "18.436851",
+    "lon": "-66.922546"
+  },
+  {
+    "nombre": "Rinc\u00f3n",
+    "area": "Oeste",
+    "areaen": "west",
+    "lat": "18.330208",
+    "lon": "-67.230492"
+  },
+  {
+    "nombre": "Sabana Grande",
+    "area": "Oeste",
+    "areaen": "west",
+    "lat": "18.080606",
+    "lon": "-66.940611"
+  },
+  {
+    "nombre": "San Germ\u00e1n",
+    "area": "Oeste",
+    "areaen": "west",
+    "lat": "18.105860",
+    "lon": "-67.041470"
+  },
+  {
+    "nombre": "San Sebasti\u00e1n",
+    "area": "Oeste",
+    "areaen": "west",
+    "lat": "18.330507",
+    "lon": "-66.971114"
+  },
+  {
+    "nombre": "Arecibo",
+    "area": "Norte",
+    "areaen": "north",
+    "lat": "18.443637",
+    "lon": "-66.668840"
+  },
+  {
+    "nombre": "Barceloneta",
+    "area": "Norte",
+    "areaen": "north",
+    "lat": "18.448074",
+    "lon": "-66.561669"
+  },
+  {
+    "nombre": "Camuy",
+    "area": "Norte",
+    "areaen": "north",
+    "lat": "18.414698",
+    "lon": "-66.864222"
+  },
+  {
+    "nombre": "Dorado",
+    "area": "Norte",
+    "areaen": "north",
+    "lat": "18.433837",
+    "lon": "-66.283589"
+  },
+  {
+    "nombre": "Florida",
+    "area": "Norte",
+    "areaen": "north",
+    "lat": "18.369710",
+    "lon": "-66.558653"
+  },
+  {
+    "nombre": "Hatillo",
+    "area": "Norte",
+    "areaen": "north",
+    "lat": "18.410333",
+    "lon": "-66.788134"
+  },
+  {
+    "nombre": "Manat\u00ed",
+    "area": "Norte",
+    "areaen": "north",
+    "lat": "18.419437",
+    "lon": "-66.486754"
+  },
+  {
+    "nombre": "Toa Alta",
+    "area": "Norte",
+    "areaen": "north",
+    "lat": "18.361396",
+    "lon": "-66.249480"
+  },
+  {
+    "nombre": "Vega Alta",
+    "area": "Norte",
+    "areaen": "north",
+    "lat": "18.411932",
+    "lon": "-66.338273"
+  },
+  {
+    "nombre": "Vega Baja",
+    "area": "Norte",
+    "areaen": "north",
+    "lat": "18.430102",
+    "lon": "-66.399129"
+  },
+  {
+    "nombre": "Bayam\u00f3n",
+    "area": "Metro",
+    "areaen": "metro",
+    "lat": "18.386781",
+    "lon": "-66.170767"
+  },
+  {
+    "nombre": "Caguas",
+    "area": "Metro",
+    "areaen": "metro",
+    "lat": "18.231181",
+    "lon": "-66.035148"
+  },
+  {
+    "nombre": "Carolina",
+    "area": "Metro",
+    "areaen": "metro",
+    "lat": "18.3810155",
+    "lon": "-65.956703"
+  },
+  {
+    "nombre": "Cata\u00f1o",
+    "area": "Metro",
+    "areaen": "metro",
+    "lat": "18.439726",
+    "lon": "-66.138698"
+  },
+  {
+    "nombre": "Guaynabo",
+    "area": "Metro",
+    "areaen": "metro",
+    "lat": "18.3669214",
+    "lon": "-66.11395"
+  },
+  {
+    "nombre": "Hato Rey",
+    "area": "Metro",
+    "areaen": "metro",
+    "lat": "18.4294461",
+    "lon": "-66.0624272"
+  },
+  {
+    "nombre": "Isla Verde",
+    "area": "Metro",
+    "areaen": "metro",
+    "lat": "18.4421202",
+    "lon": "-66.0350433"
+  },
+  {
+    "nombre": "R\u00edo Piedras",
+    "area": "Metro",
+    "areaen": "metro",
+    "lat": "18.3952197",
+    "lon": "-66.0495432"
+  },
+  {
+    "nombre": "San Juan",
+    "area": "Metro",
+    "areaen": "metro",
+    "lat": "18.406389",
+    "lon": "-66.063889"
+  },
+  {
+    "nombre": "San Juan Old",
+    "area": "Metro",
+    "areaen": "metro",
+    "lat": "18.4663142",
+    "lon": "-66.1178376"
+  },
+  {
+    "nombre": "Santurce",
+    "area": "Metro",
+    "areaen": "metro",
+    "lat": "18.440833",
+    "lon": "-66.047222"
+  },
+  {
+    "nombre": "Toa Baja",
+    "area": "Metro",
+    "areaen": "metro",
+    "lat": "18.432830",
+    "lon": "-66.207608"
+  },
+  {
+    "nombre": "Trujillo Alto",
+    "area": "Metro",
+    "areaen": "metro",
+    "lat": "18.336661",
+    "lon": "-65.998507"
+  },
+  {
+    "nombre": "Canovanas",
+    "area": "Este",
+    "areaen": "east",
+    "lat": "18.322114",
+    "lon": "-65.883903"
+  },
+  {
+    "nombre": "Ceiba",
+    "area": "Este",
+    "areaen": "east",
+    "lat": "18.252231",
+    "lon": "-65.680316"
+  },
+  {
+    "nombre": "Culebra",
+    "area": "Este",
+    "areaen": "east",
+    "lat": "18.311000",
+    "lon": "-65.304153"
+  },
+  {
+    "nombre": "Fajardo",
+    "area": "Este",
+    "areaen": "east",
+    "lat": "18.319587",
+    "lon": "-65.668107"
+  },
+  {
+    "nombre": "Gurabo",
+    "area": "Este",
+    "areaen": "east",
+    "lat": "18.268537",
+    "lon": "-65.978852"
+  },
+  {
+    "nombre": "Humacao",
+    "area": "Este",
+    "areaen": "east",
+    "lat": "18.144511",
+    "lon": "-65.811326"
+  },
+  {
+    "nombre": "Humacao Palmas Del Mar",
+    "area": "Este",
+    "areaen": "east",
+    "lat": "18.0901693",
+    "lon": "-65.8007715"
+  },
+  {
+    "nombre": "Juncos",
+    "area": "Este",
+    "areaen": "east",
+    "lat": "18.222715",
+    "lon": "-65.908329"
+  },
+  {
+    "nombre": "Las Piedras",
+    "area": "Este",
+    "areaen": "east",
+    "lat": "18.186953",
+    "lon": "-65.867172"
+  },
+  {
+    "nombre": "Loiza",
+    "area": "Este",
+    "areaen": "east",
+    "lat": "18.411964",
+    "lon": "-65.902774"
+  },
+  {
+    "nombre": "Luquillo",
+    "area": "Este",
+    "areaen": "east",
+    "lat": "18.342754",
+    "lon": "-65.724010"
+  },
+  {
+    "nombre": "Maunabo",
+    "area": "Este",
+    "areaen": "east",
+    "lat": "18.016085",
+    "lon": "-65.920998"
+  },
+  {
+    "nombre": "Naguabo",
+    "area": "Este",
+    "areaen": "east",
+    "lat": "18.227898",
+    "lon": "-65.759902"
+  },
+  {
+    "nombre": "R\u00edo Grande",
+    "area": "Este",
+    "areaen": "east",
+    "lat": "18.348214",
+    "lon": "-65.825710"
+  },
+  {
+    "nombre": "San Lorenzo",
+    "area": "Este",
+    "areaen": "east",
+    "lat": "18.149062",
+    "lon": "-65.969023"
+  },
+  {
+    "nombre": "Vieques",
+    "area": "Este",
+    "areaen": "east",
+    "lat": "18.127671",
+    "lon": "-65.441277"
+  },
+  {
+    "nombre": "Yabucoa",
+    "area": "Este",
+    "areaen": "east",
+    "lat": "18.071206",
+    "lon": "-65.897314"
+  },
+  {
+    "nombre": "Adjuntas",
+    "area": "Centro",
+    "areaen": "center",
+    "lat": "18.186162",
+    "lon": "-66.745546"
+  },
+  {
+    "nombre": "Aguas Buenas",
+    "area": "Centro",
+    "areaen": "center",
+    "lat": "18.254276",
+    "lon": "-66.127286"
+  },
+  {
+    "nombre": "Aibonito",
+    "area": "Centro",
+    "areaen": "center",
+    "lat": "18.128321",
+    "lon": "-66.261468"
+  },
+  {
+    "nombre": "Barranquitas",
+    "area": "Centro",
+    "areaen": "center",
+    "lat": "18.193493",
+    "lon": "-66.304510"
+  },
+  {
+    "nombre": "Cayey",
+    "area": "Centro",
+    "areaen": "center",
+    "lat": "18.104010",
+    "lon": "-66.152181"
+  },
+  {
+    "nombre": "Ciales",
+    "area": "Centro",
+    "areaen": "center",
+    "lat": "18.287459",
+    "lon": "-66.511457"
+  },
+  {
+    "nombre": "Cidra",
+    "area": "Centro",
+    "areaen": "center",
+    "lat": "18.173902",
+    "lon": "-66.159994"
+  },
+  {
+    "nombre": "Comer\u00edo",
+    "area": "Centro",
+    "areaen": "center",
+    "lat": "18.222861",
+    "lon": "-66.221400"
+  },
+  {
+    "nombre": "Corozal",
+    "area": "Centro",
+    "areaen": "center",
+    "lat": "18.297505",
+    "lon": "-66.337564"
+  },
+  {
+    "nombre": "Jayuya",
+    "area": "Centro",
+    "areaen": "center",
+    "lat": "18.206292",
+    "lon": "-66.584905"
+  },
+  {
+    "nombre": "Lares",
+    "area": "Centro",
+    "areaen": "center",
+    "lat": "18.278174",
+    "lon": "-66.864344"
+  },
+  {
+    "nombre": "Morovis",
+    "area": "Centro",
+    "areaen": "center",
+    "lat": "18.315953",
+    "lon": "-66.415569"
+  },
+  {
+    "nombre": "Naranjito",
+    "area": "Centro",
+    "areaen": "center",
+    "lat": "18.299988",
+    "lon": "-66.253555"
+  },
+  {
+    "nombre": "Orocovis",
+    "area": "Centro",
+    "areaen": "center",
+    "lat": "18.206480",
+    "lon": "-66.437230"
+  },
+  {
+    "nombre": "Utuado",
+    "area": "Centro",
+    "areaen": "center",
+    "lat": "18.268856",
+    "lon": "-66.702102"
+  },
+  {
+    "nombre": "Villalba",
+    "area": "Centro",
+    "areaen": "center",
+    "lat": "18.129321",
+    "lon": "-66.472847"
+  },
+  {
+    "nombre": "Condado Miramar",
+    "area": "",
+    "areaen": "",
+    "lat": "0",
+    "lon": "0"
+  }
+]
+;
+
+function hasTag(tagName) {
+    var i = null;
+    for (i = 0; tags.length > i; i += 1) {
+        if (tags[i].nombre === tagName) {
+
+            return {lat:tags[i].lat,lon:tags[i].lon};
+        }
+    }
+
+    return false;
+};
+    </script>
+<script type="text/javascript-lazy">
+
+   // Offset for Main Navigation
+    $('#mainNav').removeClass( "navbar navbar-default navbar-fixed-top affix-top" ).addClass( "navbar navbar-default navbar-fixed-top affix" );
+    $('.navbar-collapse ul li a').click(function() {
+        $('.navbar-toggle:visible').click();
+    });
+</script>

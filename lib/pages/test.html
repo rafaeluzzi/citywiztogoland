@@ -1,0 +1,238 @@
+<main id="pageController" ng-controller="pageCtrl" style="height:100%">
+
+<style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        html, body, #map {
+            height: 100%;
+        }
+        .lorem {
+            font-style: italic;
+            color: #AAA;
+
+        }
+
+    </style>
+ <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" >
+<div class="branch-journeys-top"></div>
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
+                </button>
+                <a style="padding:0 15px" class="navbar-brand page-scroll" ng-click="gotoElement('page-top')"><span><img class="logoc" style="height:50px" src="img/logoheader.svg" alt="citywiz-logo"></span></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" ng-click="gotoElement('download')">Download</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" ng-click="gotoElement('about')">About Us</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" ng-click="gotoElement('contact')">Contact</a>
+                    </li>
+                    <li>
+                        <div class="switch">
+
+    <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox" ng-model="data.cb2" aria-label="Switch 2" ng-true-value="'es'" ng-false-value="'en'" ng-change="changeLanguage(data.cb2)">
+    <label for="language-toggle"></label>
+
+    <span class="on">ENG</span>
+    <span class="off">ESP</span>
+
+  </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div id="sidebar">
+        <div class="row" style="text-align: center;"> <!-- {{eat.social_imgs[0].img_path}} -->
+          <h1 ng-bind-html="card.name"></h1>
+            <div class="avgrating">
+             <span ng-if="card.avg_rating < 1" class="sm-onstar ion-ios-star-outline-city"></span>
+              <span ng-if="card.avg_rating > 0" class="sm-onstar ion-ios-star-city"></span>
+              <span ng-if="card.avg_rating < 2" class="sm-onstar ion-ios-star-outline-city"></span>
+              <span ng-if="card.avg_rating > 1" class="sm-onstar ion-ios-star-city"></span>
+              <span ng-if="card.avg_rating < 3" class="sm-onstar ion-ios-star-outline-city"></span>
+              <span ng-if="card.avg_rating > 2" class="sm-onstar ion-ios-star-city"></span>
+              <span ng-if="card.avg_rating < 4" class="sm-onstar ion-ios-star-outline-city"></span>
+              <span ng-if="card.avg_rating > 3" class="sm-onstar ion-ios-star-city"></span>
+              <span ng-if="card.avg_rating < 5" class="sm-onstar ion-ios-star-outline-city"></span>
+              <span ng-if="card.avg_rating > 4" class="sm-onstar ion-ios-star-city"></span>
+            </div>
+          <div class="avgrating">
+           <span ng-if="card.social_imgs.length > 1" ng-repeat="social_img in card.social_imgs">
+             <li ng-if="$index < 5" style="height: 60px;width: 60px;display:inline-block;margin:0;position:relative;background:#f5f5f5" class="imgloadbg"><img onload="this.style.opacity='1';" style="height: 60px;width: 60px;opacity:0;-webkit-transition: opacity 0.3s ease-in-out;" ng-src="{{social_img.img_path}}?w=120&h=120&fit=crop" >
+             <!-- <span class="loading" style="position: relative;top: -65px;z-index: 1;"> <img width="60" height="60" src="https://www.yugma.com/images/loading-animation-7.gif"/></span> -->
+             </li>
+
+    </span>
+    </div>
+<div style="position:relative;">
+                <div class="menu-image"  style="height:300px;margin-bottom:0">
+                <img ng-if="card.social_imgs[0].eat_source != 'stock'" width="100%" height="300" ng-src="{{card.social_imgs[0].img_path}}?exp=-5&fit=crop&h=300&usm=20&chromasub=444&w=337&shad=20&dpr=2">
+                <img ng-if="card.social_imgs[0].eat_source == 'stock'" width="100%" height="300" ng-src="{{card.social_imgs[0].img_path.toLowerCase()}}?exp=-5&fit=crop&h=300&usm=20&chromasub=444&w=337&shad=20&dpr=2&txt64=bm90IGFjdHVhbCBpbWFnZQ&txtclr=ddd&txtsize=10">
+
+                </div>
+            </div>
+
+</div>
+<hr>
+<!-- address -->
+<div class="row" style="padding: 20px 15px 0px;">
+                  <div class="col" style="padding:0">
+                  <div ng-if="pageType =='eat'" class="col-info">
+                    <title class="country-title middle" style="color: #000;font-size: 12px;
+padding: 5px 0;
+font-weight: bold;
+display: block;">{{'PHONE' | translate}}</title>
+                    <span ng-if="card.phone" ng-bind-html="card.phone" ></span>
+                    <span ng-if="!card.phone">{{'NA' | translate}}</span>
+                    </div>
+                   </div>
+                  <div class="col" style="padding:0" ng-click="show=null;getInfo(card.result_id)">
+                  <div class="col-info">
+                   <title class="country-title middle" style="color: #000;
+font-size: 12px;
+padding: 5px 0;
+font-weight: bold;
+display: block;">{{'ADDRESS' | translate}}</title>
+                  <span ng-bind-html="card.add">,</span>
+                  <span ng-bind-html="card.city+ ', Puerto Rico'"></span>
+                  </div>
+                  </div>
+            </div><!-- /row -->
+<!-- /address -->
+<!-- social -->
+<hr>
+<div ng-if="card.facebook_id" class="row" style="padding: 20px 15px 0px;">
+   <a ng-href="https://facebook.com/{{card.facebook_id}}" target="_blank" style="text-decoration:none"><img style="vertical-align: bottom;" src="https://cdnjs.cloudflare.com/ajax/libs/webicons/2.0.0/webicons/webicon-facebook-s.png"> <span><strong>Facebook</strong> Page</span></a>
+</div>
+<!-- /social -->
+
+<div class="app-banner mob">
+        <div class="app-banner-info">
+            <h2 class="slogan">{{'LANGBOARD' | translate}}</h2>
+            <!-- <p class="desc">{{'APPHERO2' | translate}}</p> -->
+            <a href="http://onelink.to/citywiz"><img src="img/app-store-badge.svg" class="download-app"></a>
+             <a class="link badge-link" href="https://play.google.com/store/apps/details?id=com.citywiz.app"><img class="download-app" src="img/google-play-badge.svg" alt=""></a>
+
+        </div>
+      </div><!-- ends app banner -->
+
+
+
+
+
+    </div>
+
+    <div id="map"></div>
+    <div class="app-banner">
+        <div class="app-banner-info">
+            <a href=""><img src="img/logo.png" class="logo"></a>
+            <h2 class="slogan">{{'LANGBOARD' | translate}}</h2>
+            <p class="desc">{{'APPHERO2' | translate}}</p>
+            <a href="https://itunes.apple.com/us/app/citywiz-puerto-rico-discovery-guides/id1263551302?ls=1&mt=8"><img src="img/app-store-badge.svg" class="download-app"></a>
+             <a class="link badge-link" href="https://play.google.com/store/apps/details?id=com.citywiz.app" target="_blank"><img class="download-app" src="img/google-play-badge.svg" alt=""></a>
+        </div>
+      </div>
+      <!-- MODAL CONTENT SAMPLE STARTS HERE -->
+  <div class="modal fade" id="lab-slide-bottom-popup" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal-body">
+      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4>
+  			Para mejor experiencia utiliza nuestro App gratis.	</h4>
+      <p>Podras ver mas fotos, llegar con gps, guardar para ir despues y más.</p>
+      <div class="text-center">
+        <p style="margin:0"><small>Si ya tienes el app</small></p>
+        <a ng-click="openInApptest()" target="_blank" class="btn-dark btn-plain btn">Abrir en el App</a>
+        <p style="margin:0"><small>Si aun no, bajala gratis!</small></p>
+        <a href="http://onelink.to/citywiz" target="_blank" class="btn-dark btn-plain btn">Instalar el App</a>
+        <br />
+        <a href="#" target="_blank" class="btn-link btn-plain btn" data-dismiss="modal">Ahora No</a>
+      </div>
+    </div>
+    <!-- /.modal-body -->
+  </div>
+  <!-- /.modal -->
+  <!-- END MODAL CONTENT SAMPLE -->
+</main>
+<script type="text/javascript-lazy">
+
+setTimeout(function() {
+    window.thisScope = angular.element(document.getElementById('pageController')).scope();
+        var map = L.map('map');
+        map.setView([thisScope.card.latitude, thisScope.card.longitude], 12);
+        L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoicmFmYWVsdXp6aSIsImEiOiJFUF8tczRBIn0.MoH4ToSyQCxdg4NU68Fm_g', {
+            maxZoom: 18,
+            attribution: '&copy; Mapbox &copy; OpenStreetMap'
+        }).addTo(map);
+        var sidebar = L.control.sidebar('sidebar', {
+            closeButton: true,
+            position: 'left'
+        });
+        map.addControl(sidebar);
+        setTimeout(function () {
+            sidebar.show();
+        }, 1500);
+        var eatIcon = L.icon({
+    iconUrl: 'lib/map/images/marker-icon.png',
+
+    iconSize:     [51, 51], // size of the icon
+    //shadowSize:   [61, 61], // size of the shadow
+    //iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    //shadowAnchor: [4, 62],  // the same for the shadow
+    //popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+        var marker = L.marker([thisScope.card.latitude, thisScope.card.longitude], {icon: eatIcon}).addTo(map).on('click', function () {
+            sidebar.toggle();
+        });
+        map.on('click', function () {
+            sidebar.hide();
+        })
+        sidebar.on('show', function () {
+            console.log('Sidebar will be visible.');
+            map.panTo([thisScope.card.latitude, thisScope.card.longitude]);
+        });
+        sidebar.on('shown', function () {
+            console.log('Sidebar is visible.');
+        });
+        sidebar.on('hide', function () {
+            console.log('Sidebar will be hidden.');
+            map.panTo([thisScope.card.latitude, thisScope.card.longitude]);
+        });
+        sidebar.on('hidden', function () {
+            console.log('Sidebar is hidden.');
+        });
+        L.DomEvent.on(sidebar.getCloseButton(), 'click', function () {
+            console.log('Close button clicked.');
+        });
+        function centerLeafletMapOnMarker(map, marker) {
+  var latLngs = [ marker.getLatLng() ];
+  var markerBounds = L.latLngBounds(latLngs);
+  map.fitBounds(markerBounds);
+};
+}, 800);
+    </script>
+<script type="text/javascript-lazy">
+
+    // Offset for Main Navigation
+    $('#mainNav').removeClass( "navbar navbar-default navbar-fixed-top affix-top" ).addClass( "navbar navbar-default navbar-fixed-top affix" );
+    $('.navbar-collapse ul li a').click(function() {
+        $('.navbar-toggle:visible').click();
+    });
+    /*if (window.matchMedia("(min-width: 480px)").matches){
+    $crisp.push(["do", "chat:show"]);
+};*/
+
+</script>
