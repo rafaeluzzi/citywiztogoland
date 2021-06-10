@@ -130,7 +130,7 @@ a.close{
     overflow: hidden;
 }
 .background-video {
-    top: auto;
+    top: 0;
     right: 0;
     left: auto;
     bottom: 0;
