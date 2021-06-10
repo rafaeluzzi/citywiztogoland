@@ -136,6 +136,7 @@ a.close{
     bottom: 0;
     height: 100%;
     position: absolute;
+     width: 100%;
 }
 .background-video.madewithlove{
   background:transparent url('../img/video/madewithlove.png') no-repeat 1150px 130px;background-size:cover;
