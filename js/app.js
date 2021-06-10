@@ -259,7 +259,7 @@ App.config(['$translateProvider', function ($translateProvider) {
             TEAMTITLE: "How wonderful to meet you!",
             TEAM: "<p>We are a small but passionate Puerto Rican team focused on delivering new and fun technology products that will help you search and discover.</p>",
             DOWNLOADTITLE: "Your restaurant, Your brand — Online!",
-            DOWNLOAD: "We help local restaurants and foodtrucks grow their brand and earn more money by providing online ordering from their own website or app and tailored marketing tools.",
+            DOWNLOAD: "We help local restaurants and foodtrucks grow their brand and earn more money by providing online ordering from their own website or app (whitelabel) and tailored marketing tools.",
             ARTICLESHERO: "Discover places to visit, places to eat or stay and meet other tourists through our articles.",
             INSTAGRAMCOPY: "Follow our Instagram where we feature Puerto Rico's top places and food tru the lens of awesome local photographers/tourists who love the island and you should follow. Tap on the images for info and credit."
 
@@ -275,7 +275,7 @@ App.config(['$translateProvider', function ($translateProvider) {
             TEAMTITLE: "¡Qué maravilloso conocerte!",
             TEAM: "<p>Somos un pequeño pero apasionado equipo puertorriqueño enfocado en brindar nuevos y divertidos productos tecnológicos que te ayudarán a buscar y descubrir.</p>",
             DOWNLOADTITLE: "¡Su restaurante, Su marca — Online!",
-            DOWNLOAD: "Ayudamos a los restaurantes y foodtrucks locales a crecer su marca y ganar más dinero a través de pedidos en línea desde su propio sitio web o aplicación y herramientas de mercado a su medida.",
+            DOWNLOAD: "Ayudamos a los restaurantes y foodtrucks locales a crecer su marca y ganar más dinero a través de pedidos en línea desde su propio sitio web o aplicación (whitelabel) y herramientas de mercado a su medida.",
             ARTICLESHERO: "Descubre lugares para visitar, sitios para comer o quedarse y conoce a otros turistas a través de nuestros artículos.",
             INSTAGRAMCOPY: "Sigue nuestro Instagram donde presentamos los mejores lugares y comida de Puerto Rico capturados por increíbles fotógrafos / turisteros locales que aman la isla y los cuales debe seguir. Toque las imágenes para obtener información y crédito."
         });
