@@ -134,7 +134,7 @@ a.close{
     right: 0;
     left: auto;
     bottom: 0;
-    height: 100%;
+    height: auto;
     position: absolute;
      width: 100%;
 }
@@ -455,7 +455,7 @@ input.check-toggle-round-flat:checked + label:after {
 
 @media (min-width: 768px) {
   .background-video{
-      height: 1080px;
+      height: auto;
    }
   .background-video.madewithlove{
   background:transparent url('../img/video/madewithlove.png') no-repeat 200px 100px;background-size:cover;
