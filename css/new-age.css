@@ -201,6 +201,9 @@ p {
   line-height: 1.5;
   margin-bottom: 20px;
 }
+#hero-one p{
+  font-size: 24px;
+}
 h6.description{
   font-weight: bold;
   letter-spacing: 2px;
