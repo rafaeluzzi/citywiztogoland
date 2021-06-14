@@ -162,7 +162,7 @@ background: #fff;
 z-index: 5;
 }
 .video-overlay {
-    background-color: rgba(245,165,3,0.85);
+    background-color: rgba(245,165,3,0.75);
     top: 0;
     left: 0;
     right: 0;
