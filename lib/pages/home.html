@@ -11,15 +11,15 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right gradient-effect">
-                    <li>
+                    <!--<li>
                         <a class="page-scroll" ng-click="gotoElement('download')">Download</a>
                     </li>
                     <li>
                         <a class="page-scroll" ng-href="https://feed.citywiz.com">Guides & Articles</a>
-                    </li>
+                    </li>-->
 
                     <li>
-                        <a class="page-scroll" ng-click="gotoElement('about')">About Us</a>
+                        <a class="page-scroll" ng-click="gotoElement('pricing')">Pricing</a>
                     </li>
                     <li>
                         <a class="page-scroll" ng-click="gotoElement('contact')">Contact</a>
@@ -51,9 +51,12 @@
 </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-8 col-md-offset-2 hidden-xs hidden-sm">
                     <h2 class="section-heading hidden-xs hidden-sm">{{'DOWNLOADTITLE' | translate}}</h2>
                     <p>{{'DOWNLOAD' | translate}}</p>
+                </div>
+                <div class="col-md-8 col-md-offset-2 visible-xs-block visible-sm-block">
+                    <p style="font-size:16px">{{'DOWNLOADSMALL' | translate}}</p>
                 </div>
             </div>
         </div>
@@ -61,101 +64,104 @@
     <header>
 
 <!-- test -->
-              <div class="container-main container-home">
+              <div class="container-main container-home" style="height:100%;padding: 0 0 50px 0">
 
 <nav class="nav-mainmenu hidden-xs hidden-sm"><ul>
-
+<!-- fisrt box -->
 <a ng-click="gotoElement('download')" style="color: #2b2b2b;">
-  <li class="btn-ourjourney">
+  <li class="btn-ourjourney" style="min-height: 700px;">
 
     <span style="font-size:22px;font-weight: 600;text-align:center;padding:20px 40px">
         {{'APPBOARD' | translate}}
     </span>
     <span style="font-size:20px;text-align:center;padding:20px 40px">{{'APPHERO2' | translate}}</span>
-    <span class="btn btn-outline btn-xl page-scroll">{{'DOWNAPP' | translate}}</span>
 
 
-    <span class="appimg"><img style="width: 60%;" src="//d20ls07kdyeuub.cloudfront.net/mockupiphonexwhite.png" alt="citywiz_app"/></span>
+
+    <span class="appimg"><img style="width: 70%;height:70%;" src="//citywiz-newsletters.s3.amazonaws.com/misc/marketing-1-trans.png" alt="citywiz_app"/></span>
   </li>
 </a>
-  <a ng-href="https://feed.citywiz.com" style="color: #2b2b2b;"><li class="btn-ournetwork" style="justify-content: flex-start;">
+<!-- second box -->
+  <a ng-click="gotoElement('pricing')" style="color: #2b2b2b;">
+    <li class="btn-ournetwork" style="justify-content: flex-start;min-height: 700px;">
     <span style="font-size:20px;text-align:center;padding:20px 40px"><span style="font-size:22px;font-weight: 600;text-align:center">
         {{'LANGBOARD' | translate}}
-    </span><br /><br />{{'ARTICLESHERO' | translate}}</span>
-    <span class="btn btn-outline btn-xl page-scroll">{{'VIEWBLOG' | translate}}</span><br/>
-    <span class="appimg" style="margin-bottom:20px;display:block;text-align:center"><img style="width: 60%;" src="./img/post.png" alt="citywiz_guides"/></span>
+        <span class="appimg" style="margin-bottom:20px;display:block;text-align:center"><br /><br /><img style="width: 60%;height:60%;" src="//citywiz-newsletters.s3.amazonaws.com/misc/brandedapp.png" alt="citywiz_guides"/></span>
+    </span>{{'ARTICLESHERO' | translate}}</span>
+    <!--<span class="btn btn-outline btn-xl page-scroll">{{'VIEWBLOG' | translate}}</span><br/>-->
 
 
 
 
-  </li></a>
-
-  <a ng-href="https://www.instagram.com/citywiz.puertorico/" style="color: #2b2b2b;target:_blank"><li class="btn-thebigideas">
-<!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/272e1656a6c35296939be42a28a1968c.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
- <div style="background:white;width:100%;padding:20px;align-self:flex-end;display:flex;justify-content:space-between">
-   <div class="image_outer_container">
-   				<div class="green_icon"></div>
-   				<div class="image_inner_container">
-   					<img src="./img/starlogo.jpg">
-   				</div>
-   			</div>
-   <div style="padding:0 20px;font-size: 12px;line-height: 14px;">
-     {{'INSTAGRAMCOPY' | translate}}
-   </div>
- </div>
 
   </li></a>
+<!-- third box -->
+<!-- fisrt box -->
+<a ng-click="gotoElement('pricing')" style="color: #2b2b2b;">
+  <li class="btn-ourjourney" style="min-height: 700px;">
+
+    <span style="font-size:22px;font-weight: 600;text-align:center;padding:20px 40px">
+        {{'APPBOARD2' | translate}}
+    </span>
+    <span style="font-size:20px;text-align:center;padding:20px 40px">{{'APPHERO3' | translate}}</span>
+
+
+
+    <span class="appimg"><img style="width: 70%;height:70%;" src="//citywiz-newsletters.s3.amazonaws.com/misc/services.png" alt="citywiz_app"/></span>
+  </li>
+</a>
 </ul></nav>
 
 </div>
 <!-- test -->
-                <a class="scrolld page-scroll" ng-click="gotoElement('download')"><span></span></a>
+                <a class="scrolld page-scroll" ng-click="gotoElement('pricing')"><span></span></a>
 
     </header>
 
 
     <!-- mobile small only -->
-    <div class="visible-xs-block visible-sm-block text-center" style="margin-top:100px">
-      <div class="container">
+ <div class="visible-xs-block visible-sm-block text-center" style="margin-top:100px">
+    <div class="container">
           <div class="row">
-              <div class="col-md-8 col-md-offset-2">
-                <span style="font-size:22px;font-weight: 600;text-align:center">
+              <div class="col-md-8 col-md-offset-2" style="padding:20px">
+                <span style="font-size:22px;font-weight: 600;text-align:center;padding:20px 40px">
                     {{'APPBOARD' | translate}}
                 </span><br/>
-                <span style="font-size:16px;text-align:center;padding:20px 40px;display:block">{{'APPHERO2' | translate}}</span>
-                <a ng-href="https://onelink.to/citywiz" class="btn btn-outline btn-xl"  target="_blank">{{'DOWNAPP' | translate}}</a>
-                  <span class="appimg"><img style="width: 60%;" src="//d20ls07kdyeuub.cloudfront.net/mockupiphonexwhite.png" alt="citywiz_app"/></span>
+                <span style="font-size:20px;text-align:center;padding:20px 40px">{{'APPHERO2' | translate}}</span>
+
+
+
+                <span class="appimg"><img style="width: 70%;height:70%;" src="//citywiz-newsletters.s3.amazonaws.com/misc/marketing-1-trans.png" alt="citywiz_app"/></span>
               </div>
           </div>
       </div>
       <div class="container bg-primary">
           <div class="row">
-              <div class="col-md-8 col-md-offset-2">
+              <div class="col-md-8 col-md-offset-2" style="padding:20px">
 
-                <span style="font-size:16px;text-align:center;padding:20px 0px;display:block"><span style="font-size:20px;font-weight: 600;text-align:center">
-                    {{'LANGBOARD' | translate}}
-                </span><br />{{'ARTICLESHERO' | translate}}</span>
-                <a ng-href="https://feed.citywiz.com"><span class="appimg" style="margin-bottom:20px;display:block"><img style="width: 60%;" src="./img/post.png" alt="citywiz_guides"/></span></a>
-                <a style="margin-bottom: 25px;" ng-href="https://feed.citywiz.com" class="btn btn-outline btn-xl">{{'VIEWBLOG' | translate}}</a>
+                <a ng-click="gotoElement('pricing')" style="color: #2b2b2b;text-decoration:none;">
+                  <span style="font-size:20px;text-align:center;padding:20px 40px"><span style="font-size:22px;font-weight: 600;text-align:center">
+                      {{'LANGBOARD' | translate}}
+                      <span class="appimg" style="margin-bottom:20px;display:block;text-align:center"><br /><br /><img style="width: 60%;height:60%;" src="//citywiz-newsletters.s3.amazonaws.com/misc/brandedapp.png" alt="citywiz_guides"/></span>
+                  </span>{{'ARTICLESHERO' | translate}}</span></a>
               </div>
           </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2" style="padding:0">
-              <div style="background:white;width:100%;padding:20px;justify-content:center">
-                <a ng-href="https://www.instagram.com/citywiz.puertorico/" target="_blank"><div style="margin:20px auto;margin-bottom:20px" class="image_outer_container">
-                       <div class="green_icon"></div>
-                       <div class="image_inner_container">
-                         <img src="./img/starlogo.jpg">
-                       </div>
-                 </div></a>
-                <a ng-href="https://feed.citywiz.com" style="color: #2b2b2b; target:_blank"><div style="padding:0 20px;font-size: 12px;
-    line-height: 14px;">
-                  {{'INSTAGRAMCOPY' | translate}}
-                </div></a>
-              </div>
-              <!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/272e1656a6c35296939be42a28a1968c.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+            <div class="col-md-8 col-md-offset-2" style="padding:20px">
+              <a ng-click="gotoElement('pricing')" style="color: #2b2b2b;text-decoration:none;">
+
+                  <span style="font-size:22px;font-weight: 600;text-align:center;padding:20px 40px">
+                      {{'APPBOARD2' | translate}}
+                  </span><br />
+                  <span style="font-size:20px;text-align:center;padding:20px 40px">{{'APPHERO3' | translate}}</span>
+
+
+
+                  <span class="appimg"><img style="width: 70%;height:70%;" src="//citywiz-newsletters.s3.amazonaws.com/misc/services.png" alt="citywiz_app"/></span>
+
+              </a>
 
             </div>
         </div>
@@ -165,22 +171,22 @@
 
 
 
-    <section id="pricing" class="bg-primary text-center">
+    <section id="pricing" class="bg-primary text-center" style="padding: 40px 0">
 
       <div id="generic_price_table">
-<section>
+<section style="padding: 10px 0">
       <div class="container">
           <div class="row">
               <div class="col-md-12">
                   <!--PRICE HEADING START-->
                   <div class="price-heading clearfix">
-                      <h1>Bootstrap Pricing Table</h1>
+                      <h1>{{'PRICINGHERO' | translate }}</h1>
                   </div>
                   <!--//PRICE HEADING END-->
               </div>
           </div>
       </div>
-      <div class="container">
+      <div class="container-fluid">
 
           <!--BLOCK ROW START-->
           <div class="row">
@@ -198,7 +204,7 @@
                             <!--HEAD START-->
                               <div class="head_bg"></div>
                               <div class="head">
-                                  <span>Basic</span>
+                                  <span>Citywiz PROMO Plan</span>
                               </div>
                               <!--//HEAD END-->
 
@@ -209,9 +215,9 @@
                           <div class="generic_price_tag clearfix">
                               <span class="price">
                                   <span class="sign">$</span>
-                                  <span class="currency">99</span>
+                                  <span class="currency">9</span>
                                   <span class="cent">.99</span>
-                                  <span class="month">/MON</span>
+                                  <span class="month">/M</span>
                               </span>
                           </div>
                           <!--//PRICE END-->
@@ -221,31 +227,32 @@
 
                       <!--FEATURE LIST START-->
                       <div class="generic_feature_list">
-                        <ul>
-                            <li><span>2GB</span> Bandwidth</li>
-                              <li><span>150GB</span> Storage</li>
-                              <li><span>12</span> Accounts</li>
-                              <li><span>7</span> Host Domain</li>
-                              <li><span>24/7</span> Support</li>
+                        <div style="padding: 15px; background: white; color: #414141;"><h4 style="font-weight:bold">{{'PRICINGBASICTITLE' | translate}}</h4><h5>{{'PRICINGBASIC' | translate}}</h5></div>
+                        <span class="appimg"><img style="width: 30%;height:30%;" src="//citywiz-newsletters.s3.amazonaws.com/misc/citywizfeatured.png" alt="citywiz_app"/></span>
+                        <ul style="padding:0 20px">
+                            <li>{{'BASICF1' | translate}}</li>
+                            <li>{{'BASICF2' | translate}}</li>
+                            <li>{{'BASICF3' | translate}}</li>
+                            <li>{{'BASICF4' | translate}}</li>
                           </ul>
                       </div>
                       <!--//FEATURE LIST END-->
 
-                      <!--BUTTON START-->
-                      <div class="generic_price_btn clearfix">
-                        <a class="" href="">Sign up</a>
-                      </div>
-                      <!--//BUTTON END-->
+
 
                   </div>
                   <!--//PRICE CONTENT END-->
-
+   <div class="bottomprice" style="width:100%;background:#f6f6f6;padding: 10px;">
+     <div class="generic_price_btn clearfix">
+       <a style="background-color: #68b029;color: #fff;" class="" href="https://buy.stripe.com/3csaFgbP9agG40wcMP">{{'BASICPF16' | translate}}</a>
+     </div>
+   </div>
               </div>
 
               <div class="col-md-4">
 
                 <!--PRICE CONTENT START-->
-                  <div class="generic_content active clearfix">
+                  <div class="generic_content clearfix">
 
                       <!--HEAD PRICE DETAIL START-->
                       <div class="generic_head_price clearfix">
@@ -256,7 +263,7 @@
                             <!--HEAD START-->
                               <div class="head_bg"></div>
                               <div class="head">
-                                  <span>Standard</span>
+                                  <span>Online-Orders Basic Plan</span>
                               </div>
                               <!--//HEAD END-->
 
@@ -267,9 +274,9 @@
                           <div class="generic_price_tag clearfix">
                               <span class="price">
                                   <span class="sign">$</span>
-                                  <span class="currency">199</span>
+                                  <span class="currency">34</span>
                                   <span class="cent">.99</span>
-                                  <span class="month">/MON</span>
+                                  <span class="month">/M</span>
                               </span>
                           </div>
                           <!--//PRICE END-->
@@ -279,25 +286,31 @@
 
                       <!--FEATURE LIST START-->
                       <div class="generic_feature_list">
-                        <ul>
-                            <li><span>2GB</span> Bandwidth</li>
-                              <li><span>150GB</span> Storage</li>
-                              <li><span>12</span> Accounts</li>
-                              <li><span>7</span> Host Domain</li>
-                              <li><span>24/7</span> Support</li>
-                          </ul>
+                        <ul style="padding:0 20px">
+                            <li><span>*** {{'BASICPF8' | translate}}</span> <span>{{'BASICPF9' | translate}}</span></li>
+                            <li>{{'BASICPF2' | translate}}</li>
+                            <li>{{'BASICPF1' | translate}}</li>
+                            <li>{{'BASICPF2' | translate}}</li>
+                            <li>{{'BASICPF3' | translate}}</li>
+                            <li>{{'BASICPF4' | translate}}</li>
+                            <li>{{'BASICPF5' | translate}}</li>
+                            <li>{{'BASICPF6' | translate}}</li>
+                            <li>{{'BASICPF7' | translate}}</li>
+                            <li>{{'BASICPF10' | translate}}</li>
+                            <li>{{'BASICPF11' | translate}}</li>
+                        </ul>
                       </div>
                       <!--//FEATURE LIST END-->
 
-                      <!--BUTTON START-->
-                      <div class="generic_price_btn clearfix">
-                        <a class="" href="">Sign up</a>
-                      </div>
-                      <!--//BUTTON END-->
+
 
                   </div>
                   <!--//PRICE CONTENT END-->
-
+                  <div class="bottomprice" style="width:100%;background:#f6f6f6;padding: 10px;">
+                    <div class="generic_price_btn clearfix">
+                      <a style="background-color: #68b029;color: #fff;" class="" href="https://buy.stripe.com/3csaFgbP9agG40wcMP">{{'BASICPF16' | translate}}</a>
+                    </div>
+                  </div>
               </div>
               <div class="col-md-4">
 
@@ -313,7 +326,7 @@
                             <!--HEAD START-->
                               <div class="head_bg"></div>
                               <div class="head">
-                                  <span>Unlimited</span>
+                                  <span>Online-Orders Pro Plan</span>
                               </div>
                               <!--//HEAD END-->
 
@@ -324,7 +337,7 @@
                           <div class="generic_price_tag clearfix">
                               <span class="price">
                                   <span class="sign">$</span>
-                                  <span class="currency">299</span>
+                                  <span class="currency">54</span>
                                   <span class="cent">.99</span>
                                   <span class="month">/MON</span>
                               </span>
@@ -337,25 +350,28 @@
                       <!--FEATURE LIST START-->
                       <div class="generic_feature_list">
                         <ul>
-                            <li><span>2GB</span> Bandwidth</li>
-                              <li><span>150GB</span> Storage</li>
-                              <li><span>12</span> Accounts</li>
-                              <li><span>7</span> Host Domain</li>
-                              <li><span>24/7</span> Support</li>
+                          <li><span>*** {{'BASICPF8' | translate}}</span> <span>{{'BASICPF9' | translate}}</span></li>
+                          <li><span>*** {{'BASICPF15' | translate}}</span>  <span>{{'BASICPF9' | translate}}</span></li>
+                          <li><img style="width: 60%;height:60%;" src="//citywiz-newsletters.s3.amazonaws.com/misc/brandedapp.png" alt="citywiz_guides"></li>
+                          <li><span>{{'BASICPF12' | translate}}</span></li>
+                          <li><span>{{'BASICPF13' | translate}}</span></li>
+                          <li><span>{{'BASICPF14' | translate}}</span></li>
+
                           </ul>
                       </div>
                       <!--//FEATURE LIST END-->
 
-                      <!--BUTTON START-->
-                      <div class="generic_price_btn clearfix">
-                        <a class="" href="">Sign up</a>
-                      </div>
-                      <!--//BUTTON END-->
+
 
                   </div>
                   <!--//PRICE CONTENT END-->
-
+                  <div class="bottomprice" style="width:100%;background:#f6f6f6;padding: 10px;">
+                    <div class="generic_price_btn clearfix">
+                      <a style="background-color: #68b029;color: #fff;" class="" href="https://buy.stripe.com/3csaFgbP9agG40wcMP">{{'BASICPF16' | translate}}</a>
+                    </div>
+                  </div>
               </div>
+
           </div>
           <!--//BLOCK ROW END-->
 
@@ -364,18 +380,10 @@
 
 </div>
     </section>
-
-    <section id="about" class="features">
+<!--
+<section id="about" class="features">
         <div class="container">
-            <!-- <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="section-heading">
-                        <h2>Unlimited Features, Unlimited Fun</h2>
-                        <p class="text-muted">Check out what you can do with this app theme!</p>
-                        <hr>
-                    </div>
-                </div>
-            </div> -->
+
             <div class="row">
                 <div class="col-md-4">
                     <div class="feature-item">
@@ -475,7 +483,7 @@
             </div>
         </div>
     </section>
-
+-->
     <!--<section class="cta">
         <div class="cta-content">
             <div class="container">
@@ -487,13 +495,7 @@
     </section>-->
 
     <section id="contact" class="contact bg-primary">
-    <div class="header-video">
-<!-- <video autoplay="" class="background-video madewithlove" data-prevent-cleanup="keep" loop="" preload="">
-<source src="img/video/madewithlove.mp4" type="video/mp4">
-<source src="img/video/madewithlove.webm" type="video/webm">
-</video> -->
-<div class="video-overlay"></div>
-</div>
+
         <div class="container">
             <h4>made with <i class="fa fa-heart"></i> and lots of <i class="fa fa-coffee blk"></i> in puerto rico</h4>
             <ul class="list-inline list-social">
@@ -512,7 +514,7 @@
     </section>
 <footer>
         <div class="container">
-            <p>&copy; 2019 CityWiz LLC. All Rights Reserved.</p>
+            <p>&copy; 2021 CityWiz LLC. All Rights Reserved.</p>
             <ul class="list-inline">
                 <li>
                     <a href="https://citywiz.com/#!/privacy">Privacy</a>

@@ -121,7 +121,7 @@ a.close{
     transition: all 0.35s;
 }
  .header-video {
-    top: 0;
+    top: 50px;
     left: 0;
     right: 0;
     height: 100%;
@@ -606,7 +606,7 @@ section h2 {
   font-size: 50px;
 }
 section.download {
-  padding: 150px 0 30px;
+  padding: 150px 0 0px;
   position: relative;
 }
 section.download h2 {
@@ -1798,17 +1798,17 @@ body{background-color:#eee;}
 }
 #generic_price_table .generic_content .generic_feature_list ul li:hover{
   background-color: #E4E4E4;
-  border-left: 5px solid #2ECC71;
+  border-left: 5px solid #68b029;
 }
 
-#generic_price_table .generic_content .generic_price_btn a{
-  border: 1px solid #2ECC71;
-    color: #2ECC71;
+.generic_price_btn a{
+  border: 1px solid #68b029;
+    color: #68b029;
 }
 
 #generic_price_table .generic_content.active .generic_head_price .generic_head_content .head_bg,
 #generic_price_table .generic_content:hover .generic_head_price .generic_head_content .head_bg{
-  border-color: #2ECC71 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #2ECC71;
+  border-color: #68b029 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #68b029;
   color: #fff;
 }
 
@@ -1819,7 +1819,7 @@ body{background-color:#eee;}
 
 #generic_price_table .generic_content:hover .generic_price_btn a,
 #generic_price_table .generic_content.active .generic_price_btn a{
-  background-color: #2ECC71;
+  background-color: #68b029;
   color: #fff;
 }
 #generic_price_table{
@@ -1937,7 +1937,7 @@ body{background-color:#eee;}
   margin: 20px 0 32px;
 }
 
-#generic_price_table .generic_content .generic_price_btn a{
+.generic_price_btn a{
     border-radius: 50px;
   -moz-border-radius: 50px;
   -ms-border-radius: 50px;
@@ -1972,7 +1972,7 @@ body{background-color:#eee;}
 }
 
 @media (max-width: 767px) {
-  #generic_price_table .generic_content{
+  .bottomprice{
     margin-bottom:75px;
   }
 }
@@ -1981,19 +1981,32 @@ body{background-color:#eee;}
     float:left;
     width:50%;
   }
-
   #generic_price_table .col-md-4{
     float:left;
     width:50%;
   }
 
-  #generic_price_table .generic_content{
+  .bottomprice{
     margin-bottom:75px;
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
+  .generic_content .generic_feature_list ul li {
+      font-size: 17px !important;}
+}
+@media (min-width: 992px) and (max-width: 1399px) {
+  .generic_content .generic_feature_list ul li {
+      font-size: 17px !important;}
 }
 @media (min-width: 1200px) {
+  .generic_content{
+    height: 1050px !important;
+  }
+}
+@media (min-width: 1399px) {
+  .generic_content{
+    height: 950px !important;
+  }
 }
 #generic_price_table_home{
    font-family: 'Raleway', sans-serif;
@@ -2037,7 +2050,7 @@ body{background-color:#eee;}
   transition: all 0.3s ease-in-out 0s;
 }
 #generic_price_table_home .emerald{
-  background: #2ECC71;
+  background: #68b029;
   transition: all 0.3s ease-in-out 0s;
 }
 #generic_price_table_home .grey{
