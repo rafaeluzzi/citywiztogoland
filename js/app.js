@@ -268,6 +268,7 @@ App.config(['$translateProvider', function ($translateProvider) {
             INSTAGRAMCOPY: "Follow our Instagram where we feature Puerto Rico's top places and food tru the lens of awesome local photographers/tourists who love the island and you should follow. Tap on the images for info and credit.",
             PRICINGBASIC: "No problem, get more visits and orders by promoting it on our popular tourism app Citywiz Puerto Rico",
             PRICINGBASICTITLE: "Do you already have an online ordering service for your restaurant?",
+            PRICINGMONTH: "Monthly",
             BASICF1: "We will premium feature your restaurant on Citywiz tourism App with a link to your own page or service",
             BASICF2: "1 monthly participation on our Email marketing via Newsletter / Special Anouncements",
             BASICF3: "1 bi-monthly post on Citywiz Social Media profile on Instagram",
@@ -290,6 +291,7 @@ App.config(['$translateProvider', function ($translateProvider) {
             BASICPF16: "Join Now",
         })
         .translations('es', {
+            PRICINGMONTH: "Mes",
             BASICPF16: "Únete Ahora",
             BASICPF15: "Incluye todo lo del Online-Orders Basic Plan",
             BASICPF14: "Enlaces a sus aplicaciones actuales de entrega",
