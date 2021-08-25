@@ -1853,7 +1853,7 @@ body{background-color:#eee;}
 }
 
 #generic_price_table .generic_content .generic_head_price .generic_head_content .head{
-  padding-top: 40px;
+  padding-top: 20px;
   position: relative;
   z-index: 1;
 }
